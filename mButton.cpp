@@ -34,7 +34,11 @@ bool mButton::begin(int btPin, long long btDbTime = 25, bool btPulUp = 0, funRel
 
 	pinMode(pin, (pulUp == 1) ? INPUT_PULLUP : INPUT);
 
+#ifdef DEBUG_BUTTON
 	Serial.println("\tPulsante inizializzato Correttamente");
+#endif // DEBUG_BUTTON
+
+	return true;
 
 }
 
