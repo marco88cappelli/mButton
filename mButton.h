@@ -19,7 +19,8 @@ class mButton
 private:
 	int pin;	//Pin relativo al pulsante
 	int oldState;
-	
+	int state;
+
 	long long dbTime = 25;	//Tempo di debounce
 	long long time = 0;
 	long long timePress = 0;
@@ -34,5 +35,7 @@ private:
 public:
 	bool begin(int btPin, long long btDbTime = 25, bool btPulUp = 0, funRelease funButtonRelease = NULL, funPress funButtonPress = NULL, funPress funButtonChange = NULL);
 	void checkStateButton();
+	int stato() { return state; };
+	int statoPrecedente() { return oldState; };
 };
 #endif // !MBUTTON.h
