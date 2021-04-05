@@ -26,7 +26,8 @@ private:
 	long long timePress = 0;
 
 	bool pulUp = 0;
-	bool chekPress = false;
+	bool chekPress = 0;
+	bool pressed = 0;
 
 	funRelease buttonRelease;
 	funPress buttonPress;
@@ -35,7 +36,6 @@ private:
 public:
 	bool begin(int btPin, long long btDbTime = 25, bool btPulUp = 0, funRelease funButtonRelease = NULL, funPress funButtonPress = NULL, funPress funButtonChange = NULL);
 	void checkStateButton();
-	int stato() { return state; };
-	int statoPrecedente() { return oldState; };
+	bool isPressed() { return pressed; };
 };
 #endif // !MBUTTON.h
