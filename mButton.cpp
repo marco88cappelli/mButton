@@ -45,11 +45,14 @@ void mButton::checkStateButton() {
 
 					if (state == !pulUp) {
 						timePress = millis();
+						pressed = 1;
 						if (buttonPress != NULL) buttonPress();
 					}
 
-					if ((state == pulUp) && (buttonPress != NULL)) buttonRelease((long long)(millis() - timePress));
-
+					if ((state == pulUp) && (buttonPress != NULL)) {
+						pressed = 0;
+						buttonRelease((long long)(millis() - timePress));
+					}
 					oldState = state;
 				}
 				chekPress = false;
